@@ -1,0 +1,19 @@
+<div class="center-block text-center" id="novo-usuario-form">
+  
+  <form #f="ngForm" (submit)="form_cadastro(f)" >
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" required ngModel class="form-control" id="email"
+      name="email" >
+    </div>
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input type="password" required ngModel class="form-control" id="senha"
+      name="senha" >
+      </div>
+      <button type="submit" [disabled]="!verificaSeFormEValido(f)" class="btn btn-success">Cadastrar</button>
+      <button type="button" class="btn btn-default">Cancelar</button>
+    </form>
+  
+  
+  </div>
