@@ -1,3 +1,9 @@
-<p>
-  home works!
-</p>
+<h1>Lista de provas/questoes</h1>
+<div>
+  <ul>
+    <li *ngFor="let p of provas | async">
+      {{ p.disciplina + ' - ' + p.curso + ' - ' + p.periodo + ' - ' }}
+      {{ p.questao }}
+    </li>
+  </ul>
+</div>

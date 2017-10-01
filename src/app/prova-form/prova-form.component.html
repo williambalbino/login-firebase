@@ -1,26 +1,37 @@
-<div class="center-block text-center" id="nova-pessoa-form">
-    
-      <form>
+    <div class="center-block text-center" id="nova-prova-form">
+      
+      <form #f="ngForm" (submit)="form_cadastro(f)" >
         <div class="form-group">
           <label for="disciplina">Disciplina</label>
-          <input type="text" class="form-control" id="disciplina">
+          <input type="text" required ngModel class="form-control" id="disciplina"
+          name="disciplina" >
         </div>
         <div class="form-group">
           <label for="curso">Curso</label>
-          <input type="text" class="form-control" id="curso">
-        </div>
+          <input type="text" required ngModel class="form-control" id="curso"
+          name="curso" >
+          </div>
         <div class="form-group">
           <label for="periodo">Periodo</label>
-          <input type="text" class="form-control" id="periodo">
-        </div>
+          <input type="text" required ngModel class="form-control" id="periodo"
+          name="periodo" >
+          </div>
         <div class="form-group">
-          <label for="questoes">Questoes</label>
-          <input type="text" class="form-control" id="questoes">
-        </div>
-        <button type="button"  routerLink="/home" class="btn btn-success">Salvar</button>
-        <button type="button" class="btn btn-default">Cancelar</button>
-        
-      </form>
-    
-    
-    </div>
+          <label for="questao">Questão</label>
+          <input type="text" required ngModel class="form-control" id="questao"
+          name="questao" >
+          </div>
+          <button type="submit" [disabled]="!verificaSeFormEValido(f)" class="btn btn-success">Cadastrar</button>
+          <button type="button" class="btn btn-default">Cancelar</button>
+        </form>
+      
+      </div>
+      <br>
+<div>
+  <ul>
+    <li *ngFor="let p of provas">
+      {{ p.disciplina + ' - ' + p.curso + ' - ' + p.periodo + ' - ' }}
+      {{ p.questao }}
+    </li>
+  </ul>
+</div>
